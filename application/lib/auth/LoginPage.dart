@@ -1,8 +1,9 @@
 import 'package:careertrack/auth/phoneLogin.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import '../btmBar.dart';
 import 'RegisterPage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -81,12 +82,15 @@ class _LoginPageState extends State<LoginPage> {
                                 email: emailInputController.text,
                                 password: pwdInputController.text)
                             .then((currentUser) => Firestore.instance
-                                    .collection("users")
-                                    .document(currentUser.user.uid)
-                                    .get()
-                                    .then((DocumentSnapshot result) {
-                                  //TODO: Send to main screen
-                                }).catchError((err) => print(err)))
+                                .collection("users")
+                                .document(currentUser.user.uid)
+                                .get()
+                                .then((DocumentSnapshot result) =>
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) {
+                                      return MainScreen();
+                                    })))
+                                .catchError((err) => print(err)))
                             .catchError((err) => print(err));
                       }
                     },

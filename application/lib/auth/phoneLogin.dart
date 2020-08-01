@@ -5,36 +5,40 @@ import 'package:flutter/services.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../btmBar.dart';
+
 class PhoneLoginScreen extends StatelessWidget {
   final _phoneController = TextEditingController();
   final _codeController = TextEditingController();
 
-  Future<bool> loginUser(String phone, BuildContext context) async {
+  Future<bool> loginUser(String phone, BuildContext context) async{
     FirebaseAuth _auth = FirebaseAuth.instance;
 
     _auth.verifyPhoneNumber(
         phoneNumber: phone,
         timeout: Duration(seconds: 60),
-        verificationCompleted: (AuthCredential credential) async {
+        verificationCompleted: (AuthCredential credential) async{
           Navigator.of(context).pop();
 
           AuthResult result = await _auth.signInWithCredential(credential);
 
           FirebaseUser user = result.user;
 
-          if (user != null) {
-            //TODO: Send to main screen
-          } else {
+          if(user != null){
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => MainScreen()
+            ));
+          }else{
             print("Error");
           }
 
           //This callback would gets called when verification is done auto maticlly
         },
-        verificationFailed: (AuthException exception) {
+        verificationFailed: (AuthException exception){
           print("error");
           print(exception.message);
         },
-        codeSent: (String verificationId, [int forceResendingToken]) {
+        codeSent: (String verificationId, [int forceResendingToken]){
           showDialog(
               context: context,
               barrierDismissible: false,
@@ -54,89 +58,93 @@ class PhoneLoginScreen extends StatelessWidget {
                       child: Text("Confirm"),
 //                      textColor: Colors.white,
                       color: Colors.blue,
-                      onPressed: () async {
+                      onPressed: () async{
                         final code = _codeController.text.trim();
-                        AuthCredential credential =
-                            PhoneAuthProvider.getCredential(
-                                verificationId: verificationId, smsCode: code);
+                        AuthCredential credential = PhoneAuthProvider.getCredential(verificationId: verificationId, smsCode: code);
 
-                        AuthResult result =
-                            await _auth.signInWithCredential(credential);
+                        AuthResult result = await _auth.signInWithCredential(credential);
 
                         FirebaseUser user = result.user;
 
-                        if (user != null) {
-                          //TODO: Send to main screen
-                        } else {
+                        if(user != null){
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => MainScreen()
+                          ));
+                        }else{
                           print("Error");
                         }
                       },
                     )
                   ],
                 );
-              });
+              }
+          );
         },
-        codeAutoRetrievalTimeout: null);
+        codeAutoRetrievalTimeout: null
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-      child: Container(
-        padding: EdgeInsets.all(32),
-        child: Form(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "Login",
-                style: TextStyle(
-                    color: Colors.lightBlue,
-                    fontSize: 36,
-                    fontWeight: FontWeight.w500),
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        borderSide: BorderSide(color: Colors.grey[200])),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        borderSide: BorderSide(color: Colors.grey[300])),
-                    filled: true,
-                    fillColor: Colors.grey[100],
-                    hintText: "Mobile Number"),
-                controller: _phoneController,
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Container(
-                width: double.infinity,
-                child: FlatButton(
-                  child: Text("LOGIN"),
-                  textColor: Colors.white,
-                  padding: EdgeInsets.all(16),
-                  onPressed: () {
-                    final phone = _phoneController.text.trim();
+          child: Container(
+            padding: EdgeInsets.all(32),
+            child: Form(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text("Login", style: TextStyle(color: Colors.lightBlue, fontSize: 36, fontWeight: FontWeight.w500),),
 
-                    loginUser(phone, context);
-                  },
-                  color: Colors.blue,
-                ),
-              )
-            ],
+                  SizedBox(height: 16,),
+
+                  TextFormField(
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                            borderSide: BorderSide(color: Colors.grey[200])
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                            borderSide: BorderSide(color: Colors.grey[300])
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey[100],
+                        hintText: "Mobile Number"
+
+                    ),
+                    controller: _phoneController,
+                  ),
+
+                  SizedBox(height: 16,),
+
+
+                  Container(
+                    width: double.infinity,
+                    child: FlatButton(
+                      child: Text("LOGIN"),
+                      textColor: Colors.white,
+                      padding: EdgeInsets.all(16),
+                      onPressed: () {
+                        final phone = _phoneController.text.trim();
+
+                        loginUser(phone, context);
+
+                      },
+                      color: Colors.blue,
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
-    ));
+        )
+    );
   }
 }
+
+
 
 //*************************************************************************************************
 
@@ -168,55 +176,59 @@ class _PhonePageState extends State<PhonePage> {
     setState(() {
       _dropdownItems.add(CountryModel(country: 'India', countryCode: '+91'));
       _dropdownItems.add(CountryModel(country: 'USA', countryCode: '+1'));
-      _dropdownItems
-          .add(CountryModel(country: 'Afghanistan', countryCode: '+93'));
-      _dropdownItems
-          .add(CountryModel(country: 'Australia', countryCode: '+61'));
+      _dropdownItems.add(CountryModel(country: 'Afghanistan', countryCode: '+93'));
+      _dropdownItems.add(CountryModel(country: 'Australia', countryCode: '+61'));
       _dropdownItems.add(CountryModel(country: 'Brazil', countryCode: '+55'));
       _dropdownValue = _dropdownItems[0];
       phoneController.text = _dropdownValue.countryCode;
     });
   }
 
-  Future<bool> loginUser(String phone, BuildContext context) async {
+  Future<bool> loginUser(String phone, BuildContext context) async{
     FirebaseAuth _auth = FirebaseAuth.instance;
 
     _auth.verifyPhoneNumber(
         phoneNumber: phone,
         timeout: Duration(seconds: 60),
-        verificationCompleted: (AuthCredential credential) async {
+        verificationCompleted: (AuthCredential credential) async{
           Navigator.of(context).pop();
 
           AuthResult result = await _auth.signInWithCredential(credential);
 
           FirebaseUser user = result.user;
 
-          if (user != null) {
+          if(user != null){
+
             Firestore.instance
                 .collection("users")
                 .document(user.uid)
                 .setData({
-                  "uid": user.uid,
-                  "name": nameInputController.text,
-                  "phone": phoneController.text,
-                  "title": selectedReportList,
-                })
+              "uid": user.uid,
+              "name": nameInputController.text,
+              "phone": phoneController.text,
+              "title": selectedReportList,
+            })
                 .then((result) => {
-                      //TODO: Send to main screen
-                      nameInputController.clear(),
-                    })
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MainScreen()),
+                      (_) => false),
+              nameInputController.clear(),
+            })
                 .catchError((err) => print(err));
-          } else {
+
+          }else{
             print("Error");
           }
 
           //This callback would gets called when verification is done auto maticlly
         },
-        verificationFailed: (AuthException exception) {
+        verificationFailed: (AuthException exception){
           print("error");
           print(exception.message);
         },
-        codeSent: (String verificationId, [int forceResendingToken]) {
+        codeSent: (String verificationId, [int forceResendingToken]){
           showDialog(
               context: context,
               barrierDismissible: false,
@@ -236,43 +248,49 @@ class _PhonePageState extends State<PhonePage> {
                       child: Text("Confirm"),
 //                      textColor: Colors.white,
                       color: Colors.blue,
-                      onPressed: () async {
+                      onPressed: () async{
                         final code = _codeController.text.trim();
-                        AuthCredential credential =
-                            PhoneAuthProvider.getCredential(
-                                verificationId: verificationId, smsCode: code);
+                        AuthCredential credential = PhoneAuthProvider.getCredential(verificationId: verificationId, smsCode: code);
 
-                        AuthResult result =
-                            await _auth.signInWithCredential(credential);
+                        AuthResult result = await _auth.signInWithCredential(credential);
 
                         FirebaseUser user = result.user;
 
-                        if (user != null) {
+                        if(user != null){
+
                           Firestore.instance
                               .collection("users")
                               .document(user.uid)
                               .setData({
-                                "uid": user.uid,
-                                "name": nameInputController.text,
-                                "phone": phoneController.text,
-                                "title": selectedReportList,
-                              })
+                            "uid": user.uid,
+                            "name": nameInputController.text,
+                            "phone": phoneController.text,
+                            "title": selectedReportList,
+                          })
                               .then((result) => {
-                                    //TODO: Send to main screen
-                                    nameInputController.clear(),
-                                  })
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MainScreen()),
+                                    (_) => false),
+                            nameInputController.clear(),
+                          })
                               .catchError((err) => print(err));
-                        } else {
+
+                        }else{
                           print("Error");
                         }
                       },
                     )
                   ],
                 );
-              });
+              }
+          );
         },
-        codeAutoRetrievalTimeout: null);
+        codeAutoRetrievalTimeout: null
+    );
   }
+
 
   List<String> reportList = [
     "9th-10th",
@@ -301,20 +319,17 @@ class _PhonePageState extends State<PhonePage> {
             ),
             actions: <Widget>[
               FlatButton(
-                child: Text(
-                  "Done",
-                  style: TextStyle(color: Theme.of(context).accentColor),
-                ),
+                child: Text("Done", style: TextStyle(color: Theme.of(context).accentColor),),
                 onPressed: () {
 //                  print(selectedReportList);
-                  if (selectedReportList != '' &&
-                      nameInputController.text != '' &&
-                      phoneController.text != '') {
-                    final phone = phoneController.text.trim() +
-                        controller.text.replaceAll(' ', '');
+                  if(selectedReportList != '' && nameInputController.text != ''&& phoneController.text != ''){
+                    final phone = phoneController.text.trim()+controller.text.replaceAll(' ', '');
 //                    print(phone);
                     loginUser(phone, context);
-                  } else {}
+                    }
+                  else{
+
+                  }
                 },
               )
             ],
@@ -467,12 +482,9 @@ class _PhonePageState extends State<PhonePage> {
 //                  fillColor: Colors.orange,
                   filled: false,
                   hintText: 'Choose Country',
-                  prefixIcon: Icon(
-                    Icons.location_on,
-                    color: Theme.of(context).accentColor,
-                  ),
+                  prefixIcon: Icon(Icons.location_on, color: Theme.of(context).accentColor,),
                   labelText:
-                      _dropdownValue == null ? 'Where are you from' : 'From',
+                  _dropdownValue == null ? 'Where are you from' : 'From',
                   errorText: _errorText,
                 ),
                 isEmpty: _dropdownValue == null,
@@ -490,10 +502,7 @@ class _PhonePageState extends State<PhonePage> {
                   items: _dropdownItems.map((CountryModel value) {
                     return DropdownMenuItem<CountryModel>(
                       value: value,
-                      child: Text(
-                        value.country,
-                        style: TextStyle(color: Theme.of(context).accentColor),
-                      ),
+                      child: Text(value.country, style: TextStyle(color: Theme.of(context).accentColor),),
                     );
                   }).toList(),
                 ),
@@ -517,10 +526,7 @@ class _PhonePageState extends State<PhonePage> {
               hintStyle: TextStyle(color: Theme.of(context).accentColor),
               labelStyle: TextStyle(color: Theme.of(context).accentColor),
               filled: false,
-              prefixIcon: Icon(
-                FontAwesomeIcons.globe,
-                color: Theme.of(context).accentColor,
-              ),
+              prefixIcon: Icon(FontAwesomeIcons.globe, color: Theme.of(context).accentColor,),
               labelText: 'code',
               hintText: "Country code",
             ),
@@ -541,10 +547,7 @@ class _PhonePageState extends State<PhonePage> {
               filled: false,
               labelText: 'mobile',
               hintText: "Mobile number",
-              prefixIcon: new Icon(
-                Icons.mobile_screen_share,
-                color: Theme.of(context).accentColor,
-              ),
+              prefixIcon: new Icon(Icons.mobile_screen_share, color: Theme.of(context).accentColor,),
             ),
             onSaved: (String value) {},
           ),
@@ -584,6 +587,7 @@ class _PhonePageState extends State<PhonePage> {
       ),
     );
   }
+
 }
 
 class CountryModel {
@@ -595,6 +599,7 @@ class CountryModel {
     this.countryCode,
   });
 }
+
 
 //*******************************************************************************************
 
@@ -610,7 +615,6 @@ class MultiSelectChip extends StatefulWidget {
 
 class _MultiSelectChipState extends State<MultiSelectChip> {
   String selectedChoice = "";
-
 //  List<String> selectedChoices = List();
 
   _buildChoiceList() {
