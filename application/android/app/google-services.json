@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "228916260830",
+    "firebase_url": "https://careertrk.firebaseio.com",
+    "project_id": "careertrk",
+    "storage_bucket": "careertrk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228916260830:android:8641569f2810082ea6774f",
+        "android_client_info": {
+          "package_name": "online.progeve.careertrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228916260830-t08u32jurfb624btlq96g2noqjvjbtba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "online.progeve.careertrack",
+            "certificate_hash": "f995847d7081a212b33b4fff1f1b749103e2817e"
+          }
+        },
+        {
+          "client_id": "228916260830-l4irpilr7cct0aebgpqhj4q75g7omubo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB661Ahqyhhn_JaLAuQ0FtncOo3T-JzdZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228916260830-l4irpilr7cct0aebgpqhj4q75g7omubo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
