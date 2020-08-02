@@ -1,12 +1,16 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:careertrack/ui/quiz/quiz.dart';
+import 'package:careertrack/ui/widgets/quiz_options.dart';
 import 'package:careertrack/ui/ytPlayer/Pdf.dart';
 import 'package:careertrack/ui/ytPlayer/YtVideo.dart';
+import 'package:careertrack/ui/ytPlayer/yt.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider/path_provider.dart';
+
+import 'models/category.dart';
 
 class MyDashBoard extends StatefulWidget {
   static const String id = 'HomeId';
@@ -19,24 +23,34 @@ class _MyDashBoardState extends State<MyDashBoard> {
   final pdfs = Pdf.fetchAllPdfs();
   final videos = YtVideo.fetchAllVideos();
 
-  Widget _payOpns(quizName, imgSrc) {
-    return Column(
-      children: <Widget>[
-        Container(
-          height: 80,
-          width: 80,
-          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-          ),
-          child: CircleAvatar(
-            backgroundColor: Colors.grey,
-            backgroundImage: NetworkImage(imgSrc),
-          ),
+  _catPressed(BuildContext context, Category category) {
+    showModalBottomSheet(
+      context: context,
+      builder: (sheetContext) => BottomSheet(
+        builder: (_) => QuizOptionsDialog(
+          category: category,
         ),
-        Text(quizName),
-      ],
+        onClosing: () {},
+      ),
     );
+  }
+
+  Widget _payOpns(quizName, imgSrc) {
+    return Column(children: <Widget>[
+      Container(
+        height: 80,
+        width: 80,
+        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+        ),
+        child: CircleAvatar(
+          backgroundColor: Colors.grey,
+          backgroundImage: NetworkImage(imgSrc),
+        ),
+      ),
+      Text(quizName),
+    ]);
   }
 
   @override
@@ -68,47 +82,22 @@ class _MyDashBoardState extends State<MyDashBoard> {
                 child: Row(
                   children: <Widget>[
                     InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => QuizHome1(),
-                          ),
-                        );
-                      },
-                      child: _payOpns(
-                        "Behavioural",
-                        'https://www.funds-europe.com/sites/default/files/images/stories/fe/supplements/FundTech_Spring_2019/Brain.jpg',
-                      ),
-                    ),
+                        onTap: () {
+                          _catPressed(
+                              context,
+                              Category(9, "General Knowledge",
+                                  icon: FontAwesomeIcons.globeAsia));
+                        },
+                        child: _payOpns("Behavioural",
+                            'https://www.funds-europe.com/sites/default/files/images/stories/fe/supplements/FundTech_Spring_2019/Brain.jpg')),
                     InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => QuizHome1(),
-                          ),
-                        );
-                      },
-                      child: _payOpns(
-                        "Assessment",
-                        'https://aspetraining.com/sites/default/files/inline-images/Assess_1_0.png',
-                      ),
-                    ),
+                        onTap: () {},
+                        child: _payOpns("Assessment",
+                            'https://aspetraining.com/sites/default/files/inline-images/Assess_1_0.png')),
                     InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => QuizHome1(),
-                          ),
-                        );
-                      },
-                      child: _payOpns(
-                        "Aptitude",
-                        'https://app.aptitudesolutions.com.au/web/images/Aptitude_Logo.png',
-                      ),
-                    ),
+                        onTap: () {},
+                        child: _payOpns("Aptitude",
+                            'https://app.aptitudesolutions.com.au/web/images/Aptitude_Logo.png')),
                   ],
                 ),
               ),
@@ -181,6 +170,79 @@ class _MyDashBoardState extends State<MyDashBoard> {
                                   color: Colors.white,
                                 ),
                               ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            RichText(
+              textAlign: TextAlign.left,
+              text: TextSpan(
+                text: 'Career Talk',
+                style: GoogleFonts.portLligatSans(
+                  textStyle: Theme.of(context).textTheme.display1,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w700,
+                  color: Theme.of(context).errorColor,
+                ),
+              ),
+            ),
+            Container(
+                height: 900,
+              child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: videos.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Yt(id: videos[index].id)),
+                      );
+                    },
+                    child: Container(
+                      padding: EdgeInsets.only(
+                        left: 10.0,
+                        right: 10.0,
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Image.network(
+                            videos[index].image,
+                            height: 150.0,
+                            width: 170.0,
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Flexible(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  videos[index].title,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15.0,
+                                      color: Theme.of(context).accentColor),
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text(
+                                  videos[index].channel,
+                                  style: TextStyle(
+                                      color: Theme.of(context).accentColor),
+                                ),
+                              ],
                             ),
                           ),
                         ],

@@ -7,11 +7,11 @@ class AppTheme {
 //  static final Color textColorLight = Colors.deepOrange;
   static final Color primaryColorLight = Colors.deepOrange;
   static final Color secondaryColorLight = Colors.indigo;
-  static final Color accentColorLight = Colors.indigoAccent;
+  static final Color accentColorLight = Colors.blue;
 
   static final Color bgColorDark = Colors.black;
 //  static final Color textColorDark = Colors.white;
-  static final Color primaryColorDark = Colors.indigo;
+  static final Color primaryColorDark = Colors.blue;
   static final Color secondaryColorDark = Colors.deepOrange;
   static final Color accentColorDark = Colors.deepOrangeAccent;
 

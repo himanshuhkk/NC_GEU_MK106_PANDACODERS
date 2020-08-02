@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:careertrack/ui/extraPages/onBoarding.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -5,9 +7,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../btmBar.dart';
-import 'LoginPage.dart';
-//import 'package:sih/home.dart';
-
 
 class SplashPage extends StatefulWidget {
   SplashPage({Key key}) : super(key: key);
@@ -34,9 +33,12 @@ class _SplashPageState extends State<SplashPage> {
                   .document(currentUser.uid)
                   .get()
                   .then((DocumentSnapshot result) =>
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-                    return MainScreen();
-                  })))
+                    Timer(Duration(seconds: 2,), (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                            return MainScreen();
+                        }));
+                    })
+              )
                   .catchError((err) => print(err))
             }
     })
