@@ -1,0 +1,54 @@
+[
+  {
+    "id": "974d684e-b2fd-403b-9958-02fee204e774",
+    "data": [
+      {
+        "text": "I want to know about your app?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "aad45f11-8605-400a-99f4-4a4c47ee2ee0",
+    "data": [
+      {
+        "text": "What is in your app?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "793db10d-2de5-4284-9611-bcb1ea1c0788",
+    "data": [
+      {
+        "text": "Explore the app",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "430da548-6187-4f14-aa02-47255b207ec9",
+    "data": [
+      {
+        "text": "I want to explore your app",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

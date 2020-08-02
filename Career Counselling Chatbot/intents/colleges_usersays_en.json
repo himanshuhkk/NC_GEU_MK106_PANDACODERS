@@ -1,0 +1,41 @@
+[
+  {
+    "id": "09f8a8db-6570-4394-adb1-b7ffef51effd",
+    "data": [
+      {
+        "text": "give me some college name",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9921c561-dece-4f04-bcf0-5975f2ee5b74",
+    "data": [
+      {
+        "text": "search colleges for me",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "c4bd23df-3102-4568-b5f7-8caa3194e227",
+    "data": [
+      {
+        "text": "find colleges",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "f5ce96e9-aeb0-46b8-9d1d-6d3d6239d2c6",
+    "data": [
+      {
+        "text": "What features you give?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "4d2b194f-faaf-4096-974c-eb93134c3087",
+    "data": [
+      {
+        "text": "What you provide?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "da23950b-8f2d-4c47-a357-b72f543a5730",
+    "data": [
+      {
+        "text": "I need help",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "b1c0d3ec-f22e-4a2f-807d-67d0a74a64b4",
+    "data": [
+      {
+        "text": "How can you help me?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "f65f5b8d-d7d7-40a2-bea9-ed2cee80cf7a",
+    "data": [
+      {
+        "text": "What can you do?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

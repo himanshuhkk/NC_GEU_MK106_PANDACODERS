@@ -1,0 +1,93 @@
+[
+  {
+    "id": "7d5f3a53-d3f7-4c4b-92c8-5808d5d2ceb9",
+    "data": [
+      {
+        "text": "I have to ask a question",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "c67b8358-4616-4400-93a0-47c3a9bd46c4",
+    "data": [
+      {
+        "text": "Could you resolve my doubt?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "fb73eb49-36fc-470a-b845-495513074388",
+    "data": [
+      {
+        "text": "Could you answer my question?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "15c5a796-ee4a-4484-bf17-c403c30a2e2e",
+    "data": [
+      {
+        "text": "I want to ask something.",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "29eb2f0d-956e-4280-af13-f82e7e96875b",
+    "data": [
+      {
+        "text": "Can you tell me one thing?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "60219a42-3c1a-49ad-8217-2b13662453e7",
+    "data": [
+      {
+        "text": "Have a question",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "a680f99a-d4df-4e00-80e3-f7d3eb21bb68",
+    "data": [
+      {
+        "text": "I have a question",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

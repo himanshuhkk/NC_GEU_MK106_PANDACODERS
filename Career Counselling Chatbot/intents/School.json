@@ -1,0 +1,35 @@
+{
+  "id": "d57709d7-ed13-4c85-9271-1983d8a50214",
+  "name": "School",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Sure. I am here to suggest you Schools.                                                                                                                                          Type your query as:                                                                                                                   \n                                                                                                                                                                    \n-Name top Schools in location {your preferred location}                                                                                                                                                                                                                    -Find Schools for {Class} in {location}"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

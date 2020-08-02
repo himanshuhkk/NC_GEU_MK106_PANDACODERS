@@ -1,0 +1,41 @@
+[
+  {
+    "id": "b78815f0-6f5f-4ec9-b62f-8ceb625b5e8b",
+    "data": [
+      {
+        "text": "find me school",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "ab18cdcd-8136-4a1b-8346-1306e8a0ac28",
+    "data": [
+      {
+        "text": "suggest me school",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "4ee9db78-c7d2-42fa-9b0d-fa7a5927c57d",
+    "data": [
+      {
+        "text": "I want to search school",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

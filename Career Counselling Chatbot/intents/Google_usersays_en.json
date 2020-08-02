@@ -1,0 +1,77 @@
+[
+  {
+    "id": "e36d390e-d325-4e31-b960-a82040b291e3",
+    "data": [
+      {
+        "text": "What are the best career options after 12 Science?",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "cd33c69e-c29b-4fcf-9691-70e993e69bae",
+    "data": [
+      {
+        "text": "What are the career options in Arts?",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "12ef5dc0-a854-49a1-8e25-8da1d92dfdac",
+    "data": [
+      {
+        "text": "What is B.Tech?",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "78e6d7f9-6668-4002-8a67-4b86b9c0f9fe",
+    "data": [
+      {
+        "text": "Can I pursue BBA after taking Science?",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "97e8065a-7177-42fc-b528-11080a7eb4bb",
+    "data": [
+      {
+        "text": "What are the subjects in 12th Commerce?",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

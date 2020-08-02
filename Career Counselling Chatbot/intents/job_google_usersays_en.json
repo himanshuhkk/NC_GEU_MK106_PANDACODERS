@@ -1,0 +1,227 @@
+[
+  {
+    "id": "f3719fde-8c7b-463b-b618-98ee30e10975",
+    "data": [
+      {
+        "text": "Name colleges for Btech in Alwar",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "fa8bedff-6dbb-4e63-8754-0dd05fcd4c72",
+    "data": [
+      {
+        "text": "Find colleges for BBA in jaipur",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "6b8a4553-5384-4650-ad2a-7f25609d8b69",
+    "data": [
+      {
+        "text": "Name colleges for B.Sc honours in delhi",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "78433c2f-563c-4d27-87c5-d5e5a4675dc3",
+    "data": [
+      {
+        "text": "search for good schools in Bihar",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "cb422ebc-bdf0-4e27-abf5-b5b9286c4121",
+    "data": [
+      {
+        "text": "find top schools in Rajsathan",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "dbc0c83b-3535-4239-8634-90720acc7d9d",
+    "data": [
+      {
+        "text": "name best school in banglore",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9ac7cb60-7ac3-4feb-bda8-7a38cc2a7621",
+    "data": [
+      {
+        "text": "find schools for 5 class in delhi",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "25f8888f-5bb7-4b31-822c-60428c9eab18",
+    "data": [
+      {
+        "text": "search schools in Alwar",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "450eb94c-f4f6-4a23-bcd4-f4c21fba6f0b",
+    "data": [
+      {
+        "text": "find jobs for freshers",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "60d5b520-e777-497f-b85f-b7e49f017c0d",
+    "data": [
+      {
+        "text": "search jobs for python Developer entry level",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "ae39fd9a-64ba-4877-89e8-a82b91e4e3a8",
+    "data": [
+      {
+        "text": "Search jobs for java developer experience 1 year location banglore",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8d53d4b8-8203-4aa0-a1ba-3ea68933be98",
+    "data": [
+      {
+        "text": "Search jobs for Software Developer entry level",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "e52017c4-9224-4c55-811c-eed676e21920",
+    "data": [
+      {
+        "text": "Search job vacancies for CA final year experience 3 year",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "fc830ada-a0f0-4143-962f-e0411dda5ac8",
+    "data": [
+      {
+        "text": "Search jobs for dropouts",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "5f694c5c-0b28-479e-bb73-df2e22c43735",
+    "data": [
+      {
+        "text": "Job search for civil engineers",
+        "meta": "@sys.any",
+        "alias": "any",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]
