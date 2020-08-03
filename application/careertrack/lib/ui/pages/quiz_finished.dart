@@ -1,11 +1,14 @@
+import 'package:careertrack/ui/ytPlayer/Pdf.dart';
 import 'package:flutter/material.dart';
 import 'package:careertrack/models/question.dart';
 import 'package:careertrack/ui/pages/check_answers.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuizFinishedPage extends StatelessWidget {
   final List<Question> questions;
   final Map<int, dynamic> answers;
-  
+  final pdfs = Pdf.fetchAllPdfs();
+
   int correctAnswers;
   QuizFinishedPage({Key key, @required this.questions, @required this.answers}): super(key: key) {
     
@@ -121,7 +124,80 @@ class QuizFinishedPage extends StatelessWidget {
                     },
                   ),
                 ],
-              )
+              ),
+              SizedBox(height: 20,),
+              RichText(
+                textAlign: TextAlign.left,
+                text: TextSpan(
+                  text: 'Recommended Courses',
+                  style: GoogleFonts.portLligatSans(
+                    textStyle: Theme.of(context).textTheme.display1,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20,),
+              Container(
+                height: 200.0,
+                margin: EdgeInsets.only(
+                  bottom: 50.0,
+                ),
+                child: ListView.builder(
+                  itemCount: pdfs.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext ctxt, int i) {
+                    return GestureDetector(
+                      onTap: () {
+//                        prepareTestPdf(pdfs[i].path).then((path) {
+//                          Navigator.push(
+//                            context,
+//                            MaterialPageRoute(
+//                                builder: (context) => FullPdfViewerScreen(path)),
+//                          );
+//                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          left: 20.0,
+                          right: 20.0,
+                        ),
+                        color: Colors.teal,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Container(
+                              height: 150.0,
+                              width: MediaQuery.of(context).size.width / 1.5,
+                              child: Image.asset(
+                                pdfs[i].image,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Container(
+                              width:
+                              MediaQuery.of(context).size.width / 1.5 - 20.0,
+                              child: Center(
+                                child: Text(
+                                  pdfs[i].title,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),

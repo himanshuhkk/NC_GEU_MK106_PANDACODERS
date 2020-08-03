@@ -9,14 +9,7 @@ class Category{
 }
 
 final List<Category> categories = [
-  Category(9,"General Knowledge", icon: FontAwesomeIcons.globeAsia),
-  Category(10,"Finance", icon: FontAwesomeIcons.bookOpen),
-  Category(11,"Film", icon: FontAwesomeIcons.video),
-  Category(12,"Music", icon: FontAwesomeIcons.music),
-  Category(13,"Banking", icon: FontAwesomeIcons.theaterMasks),
-  Category(14,"Television", icon: FontAwesomeIcons.tv),
-  Category(15,"Video Games", icon: FontAwesomeIcons.gamepad),
-  Category(16,"Board Games", icon: FontAwesomeIcons.chessBoard),
+
   Category(17,"Science & Nature", icon: FontAwesomeIcons.microscope),
   Category(18,"Computer", icon: FontAwesomeIcons.laptopCode),
   Category(19,"Maths", icon: FontAwesomeIcons.sortNumericDown),
@@ -33,4 +26,12 @@ final List<Category> categories = [
   Category(30,"Gadgets", icon: FontAwesomeIcons.mobileAlt),
   Category(31,"GATE"),
   Category(32,"B.Tech"),
+  Category(9,"General Knowledge", icon: FontAwesomeIcons.globeAsia),
+  Category(10,"Finance", icon: FontAwesomeIcons.bookOpen),
+  Category(11,"Film", icon: FontAwesomeIcons.video),
+  Category(12,"Music", icon: FontAwesomeIcons.music),
+  Category(13,"Banking", icon: FontAwesomeIcons.theaterMasks),
+  Category(14,"Television", icon: FontAwesomeIcons.tv),
+  Category(15,"Video Games", icon: FontAwesomeIcons.gamepad),
+  Category(16,"Board Games", icon: FontAwesomeIcons.chessBoard),
 ];

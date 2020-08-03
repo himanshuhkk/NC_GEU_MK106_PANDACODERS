@@ -1,6 +1,7 @@
 
 import 'package:careertrack/auth/profile.dart';
 import 'package:careertrack/theme/appTheme.dart';
+import 'package:careertrack/ui/extraPages/chatBot.dart';
 import 'package:careertrack/ui/pages/home.dart';
 import 'package:careertrack/ui/ytPlayer/videoList.dart';
 import 'package:flutter/material.dart';
@@ -137,7 +138,9 @@ class _HomeMain extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Add your onPressed code here!
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return HomePageDialogflow();
+          }));
         },
         child: Icon(Icons.chat),
         backgroundColor: Colors.green,

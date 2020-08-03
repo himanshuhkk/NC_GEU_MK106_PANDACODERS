@@ -1,3 +1,5 @@
+import 'package:camera/camera.dart';
+import 'package:careertrack/models/faceResults.dart';
 import 'package:flutter/material.dart';
 import 'package:careertrack/models/category.dart';
 import 'package:careertrack/models/question.dart';
@@ -19,10 +21,49 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   final TextStyle _questionStyle = TextStyle(
       fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.white);
+  CameraController controller;
 
   int _currentIndex = 0;
   final Map<int, dynamic> _answers = {};
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+  super.initState();
+    _loadCamera();
+  }
+
+  void _loadCamera() async {
+
+    List<CameraDescription> cameras = await availableCameras();
+
+    controller = CameraController(cameras[0], ResolutionPreset.medium);
+    controller.initialize().then((_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {});
+    });
+
+    await Future.delayed(Duration(seconds: 2));
+
+    print("Taking Picture");
+    getFaceResult();
+
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
+  void getFaceResult(){
+    controller.startImageStream((image){
+      FaceResults.fetchFaceResults(image.planes[0].bytes);
+    });
+    controller.stopImageStream();
+  }
 
   @override
   Widget build(BuildContext context) {

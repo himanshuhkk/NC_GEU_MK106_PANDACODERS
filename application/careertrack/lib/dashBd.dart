@@ -1,15 +1,18 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:careertrack/games/puzzle/puzzleHome.dart';
 import 'package:careertrack/ui/widgets/quiz_options.dart';
 import 'package:careertrack/ui/ytPlayer/Pdf.dart';
-import 'package:careertrack/ui/ytPlayer/YtVideo.dart';
 import 'package:careertrack/ui/ytPlayer/yt.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'analyst/analystHome.dart';
+import 'games/hangman/hangMan.dart';
+import 'models/YtVideo.dart';
 import 'models/category.dart';
 
 class MyDashBoard extends StatefulWidget {
@@ -58,6 +61,50 @@ class _MyDashBoardState extends State<MyDashBoard> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Career Track"),
+        actions: <Widget>[
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) {
+                    return AnalystScreen();
+                  }));
+            },
+            child: Icon(
+            Icons.add_box,
+        ),
+          ),
+          SizedBox(
+            width: 20.0,
+          ),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) {
+                    return PuzzleGame();
+                  }));
+            },
+            child: Icon(
+            Icons.games,
+        ),
+          ),
+          SizedBox(
+            width: 20.0,
+          ),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) {
+                    return HangMan();
+                  }));
+            },
+            child: Icon(
+            Icons.games,
+        ),
+          ),
+          SizedBox(
+            width: 20.0,
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,

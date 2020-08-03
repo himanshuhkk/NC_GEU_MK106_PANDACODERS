@@ -1,4 +1,5 @@
 import 'package:careertrack/auth/SignUpIn.dart';
+import 'package:careertrack/models/analystDB.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -18,13 +19,16 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   Widget _buildImage(String assetName) {
     return Align(
-      child: Image.asset('assets/$assetName.jpg', width: 350.0),
+      child: Image.asset('assets/img/$assetName.png', width: 350.0),
       alignment: Alignment.bottomCenter,
     );
   }
 
   @override
   Widget build(BuildContext context) {
+
+    VerifyQues.fetchAll(10).then((value) => print(value[0].question));
+
     const bodyStyle = TextStyle(fontSize: 19.0);
     const pageDecoration = const PageDecoration(
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),

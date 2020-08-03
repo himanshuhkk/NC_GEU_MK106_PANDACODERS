@@ -206,7 +206,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             setState(() {
                               isProgress = false;
                             });
-                            Navigator.push(context,
+                            Navigator.pushReplacement(context,
                                 MaterialPageRoute(builder: (context) {
                               return MainScreen();
                             }));

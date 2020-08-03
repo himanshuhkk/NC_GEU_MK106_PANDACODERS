@@ -1,4 +1,6 @@
 import 'package:careertrack/auth/splashPage.dart';
+import 'package:careertrack/models/profileData.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,8 +16,22 @@ class Profile extends StatefulWidget{
 class _Pro extends State<Profile> {
 
   String imgPath = 'https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584_960_720.png';
-
+  String name = "Name", id = "Id", title = "Title";
   double width;
+
+  @override
+  initState() {
+    super.initState();
+    ProfileData.fetchProfile().then((value) {
+      setState(() {
+        name=value.Name;
+        title = value.title;
+        id = value.id;
+      });
+      print(name);
+    });
+  }
+
 
   Widget _header(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -75,7 +91,7 @@ class _Pro extends State<Profile> {
 //                                  )
 //                                ),
 
-                                "You",
+                                name,
                                 style: TextStyle(
                                     color: Colors.green,
                                     fontSize: 30,
@@ -141,7 +157,7 @@ class _Pro extends State<Profile> {
         RichText(
           textAlign: TextAlign.center,
           text: TextSpan(
-              text: 'Your Name',
+              text: name,
               style: GoogleFonts.portLligatSans(
                 textStyle: Theme.of(context).textTheme.display1,
                 fontSize: 30,
@@ -150,13 +166,13 @@ class _Pro extends State<Profile> {
               ),
               children: [
                 TextSpan(
-                  text: '\nOccupation',
+                  text: '\n'+id,
                   style: TextStyle(color: Theme.of(context).errorColor, fontSize: 22),
                 ),
-//                TextSpan(
-//                  text: '',
-//                  style: TextStyle(color: Colors.blueAccent, fontSize: 30),
-//                ),
+                TextSpan(
+                  text: '\n'+title,
+                  style: TextStyle(color: Colors.blueAccent, fontSize: 30),
+                ),
               ]),
         ),
       ],
