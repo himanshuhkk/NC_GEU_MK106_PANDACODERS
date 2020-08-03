@@ -1,0 +1,20 @@
+green$What colour starts with the letter “G”?
+six$What comes after the number five?
+christmas$During which festival does Santa come to visit?
+five$How many fingers do you have in one hand?
+eyes$What part of your body lets you see?
+red$What colour are apples?
+25$What is 5 x 5?
+seven$How many days do we have in a week?
+camel$Which animal is known as the ‘Ship of the Desert?’
+26$How many letters are there in the English alphabet?
+three$How many sides are there in a triangle?
+lion$Which animal is called King of Jungle?
+holi$Which festival is known as the festival of colors?
+three$How many zeros are there in one thousand?
+206$How many bones does an adult human have?
+two$How many lungs does the human body have?
+rupee$The national currency of India is
+four$How many sides are there in a square?
+white$What is the color of the moon?
+5$What is 7 x 2 - 9?
