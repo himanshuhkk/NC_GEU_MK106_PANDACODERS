@@ -22,10 +22,12 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       text:"We provide Career guidance and help you enhance your Aptitude Skills."
     })
     );
+    agent.add('You can Explore our Application by typing Explore App');
     agent.add(new Suggestion("Have a question"));
     agent.add(new Suggestion("Job Search"));
-    agent.add(new Suggestion("Explore our App"));
-    agent.add(new Suggestion("Leave Chat"));
+    agent.add(new Suggestion("Find School"));
+    agent.add(new Suggestion("Find Colleges"));
+    
   }     
       
               
@@ -36,7 +38,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   function GoogleFunctionHandler(agent){
     const query=agent.parameters.any;
     agent.add("Google Says: ");
-    return axios.get(`https://www.googleapis.com/customsearch/v1?key=**********************&cx=********************&q=${query}`)
+    return axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyABtMQdQ-VVW013K23LAF_nLNq6t0ngZpU&cx=000277142673110541002:jdelrrxrvii&q=${query}`)
     .then((result) => {
       //console.log(result.data);
       for (var i = 0; i < 3; i++) {
@@ -55,7 +57,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   function jobHandler(agent){
     const query=agent.parameters.any;
     //agent.add("Google Says: ");
-    return axios.get(`https://www.googleapis.com/customsearch/v1?key=********************&cx=********************&q=${query}`)
+    return axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyABtMQdQ-VVW013K23LAF_nLNq6t0ngZpU&cx=000277142673110541002:jdelrrxrvii&q=${query}`)
     .then((result) => {
       //console.log(result.data);
       for (var i = 0; i < 3; i++) {

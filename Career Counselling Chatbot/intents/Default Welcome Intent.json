@@ -1,0 +1,101 @@
+{
+  "id": "ff785d3d-f457-48a8-84fd-6f7a4c230288",
+  "name": "Default Welcome Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.welcome",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "basic_card",
+          "platform": "google",
+          "subtitle": "Hey! It\u0027s Panda. Your Counselor.",
+          "title": "CAREER COUNSELLING BOT",
+          "textToSpeech": "",
+          "image": {
+            "url": "https://www.techopedia.com/images/uploads/6e13a6b3-28b6-454a-bef3-92d3d5529007.jpeg",
+            "accessibilityText": "bot"
+          },
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "suggestion_chips",
+          "platform": "google",
+          "title": "",
+          "textToSpeech": "",
+          "suggestions": [
+            {
+              "title": "Have a question"
+            },
+            {
+              "title": "Just talk"
+            },
+            {
+              "title": "Need Counselling"
+            }
+          ],
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Hola!! My name is Panda and I am your Personal Assistant Counselling Bot. How can I ease your search?",
+            "Heya!! It\u0027s me Panda. Welcome to your Personal Assistant Counselling Bot. How can I help you?"
+          ],
+          "condition": ""
+        },
+        {
+          "type": "4",
+          "title": "",
+          "payload": {
+            "metadata": {
+              "contentType": "300",
+              "templateId": "6",
+              "payload": [
+                {
+                  "title": "Yes",
+                  "message": "Cool! send me more."
+                },
+                {
+                  "title": "No ",
+                  "message": "Don\u0027t send it to me again"
+                }
+              ]
+            },
+            "message": "Do you want more updates?",
+            "ignoreTextResponse": false,
+            "platform": "kommunicate"
+          },
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "google": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "WELCOME"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

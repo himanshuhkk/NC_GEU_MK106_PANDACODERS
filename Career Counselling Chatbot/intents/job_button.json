@@ -1,0 +1,35 @@
+{
+  "id": "2dcd8bfd-4693-462a-91b6-e9f654e6588e",
+  "name": "job_button",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Sure.                                                                                                                                                 Type your query as:                                                                                                                   \n                                                                                                                                                                    \n-Search jobs for {Profile} experience {1year/3year/Entry level...}   location { your preferred location}                                                                                                                                                                                                                    -Search Job Vacancies for {profile}"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

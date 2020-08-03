@@ -1,0 +1,35 @@
+{
+  "id": "d8b40794-3d67-472a-b15b-67f8908f6748",
+  "name": "colleges",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Sure, Colleges. Voila!!                                                                                                                                           Type your query as:                                                                                                                   \n                                                                                                                                                                    \n-Name top { B.tech / BBA / BCom / B.Sc / Arts /....} colleges in location {your preferred location}                                                                                                                                                                                                                    -Find colleges for {your field} in {location}"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

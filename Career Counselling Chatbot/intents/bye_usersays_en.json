@@ -1,0 +1,132 @@
+[
+  {
+    "id": "d14935e5-f71c-485c-b7b6-a9f6a9c40fbe",
+    "data": [
+      {
+        "text": "Thank you",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "d7e5a98a-ffc8-4b47-8021-5f793feed3fe",
+    "data": [
+      {
+        "text": "I got it",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "01537c0e-7f32-4cb3-b167-9bc835689bd9",
+    "data": [
+      {
+        "text": "yeah",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "35f7e5fd-7e1a-421c-a2ad-d95f21303d60",
+    "data": [
+      {
+        "text": "leave",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "6454e835-ff52-42ce-9079-b4e46ac59db6",
+    "data": [
+      {
+        "text": "leave chat",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "33d84fc7-6ec5-420c-a270-5e59fb4a63e4",
+    "data": [
+      {
+        "text": "I will give test.",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "4dae2391-fcdb-41a5-a8b8-8f85bffa7cbe",
+    "data": [
+      {
+        "text": "By",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "66c6361c-1be7-42ab-9400-ad6509205e5a",
+    "data": [
+      {
+        "text": "Bye",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "2436efef-5ba9-4d03-a5ae-f05a5c125075",
+    "data": [
+      {
+        "text": "Thanks for answering",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "774d2812-ed1e-4fd3-899a-545a94d274e4",
+    "data": [
+      {
+        "text": "cancel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]
