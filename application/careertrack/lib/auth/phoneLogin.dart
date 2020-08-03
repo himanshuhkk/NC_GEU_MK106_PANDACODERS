@@ -297,7 +297,7 @@ class _PhonePageState extends State<PhonePage> {
     "11th-12th",
     "College Student",
     "Drop out",
-    "Others"
+    "Kids"
   ];
 
   String selectedReportList = "";

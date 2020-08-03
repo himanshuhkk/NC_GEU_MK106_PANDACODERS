@@ -47,4 +47,41 @@ class VerifyQues {
 
     return list;
   }
+
+  static Future<List<VerifyQues>> fetchAssissment(length, categ) async{
+    var dataset ;
+    await FirebaseDatabase.instance
+        .reference()
+        .child('quiz')
+        .child('srSec')
+        .child(categ)
+        .once()
+        .then((value) => dataset = value.value);
+
+    var total = dataset.length;
+
+    if(length == -1) {
+      length = total;
+    }
+
+    var randomArr = List.generate(total, (index) => index)..shuffle();
+    var randomQues = randomArr.take(length).toList();
+
+    var list = List<VerifyQues>.generate(length, (i) {
+      var ques = dataset[randomQues[i]];
+      return VerifyQues(
+          randomQues[i] + 1,
+          ques["QUESTION"],
+          [
+            ques["OPTION1"],
+            ques["OPTION2"],
+            ques["OPTION3"],
+            ques["OPTION4"],
+          ],
+          ques["ANSWER"],
+        ques["NAME OF SUBJECT IN PARTICULAR STREAM"]);
+    });
+
+    return list;
+  }
 }

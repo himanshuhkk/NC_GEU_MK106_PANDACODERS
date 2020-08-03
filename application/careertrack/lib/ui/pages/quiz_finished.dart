@@ -126,6 +126,12 @@ class QuizFinishedPage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20,),
+              Center(
+                child: Text(
+                    "You are quite responsive while answering, kindly be joyful and relax while the quiz. We are here t help you positively if you honestly answer the questions."
+                ),
+              ),
+              SizedBox(height: 20,),
               RichText(
                 textAlign: TextAlign.left,
                 text: TextSpan(

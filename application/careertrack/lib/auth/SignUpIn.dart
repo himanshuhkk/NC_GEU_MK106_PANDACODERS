@@ -539,7 +539,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     "11th-12th",
     "College Student",
     "Drop out",
-    "Others"
+    "Kids"
   ];
 
   String selectedReportList = "";

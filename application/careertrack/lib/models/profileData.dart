@@ -27,7 +27,7 @@ class ProfileData {
         })
         .catchError((err) => print(err));
 
-    print(ds.data);
+//    print(ds.data);
 
     pName = ds['name'].toString();
     pTitle = ds['title'].toString();

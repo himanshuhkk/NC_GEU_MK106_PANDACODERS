@@ -28,7 +28,7 @@ class _Pro extends State<Profile> {
         title = value.title;
         id = value.id;
       });
-      print(name);
+//      print(name);
     });
   }
 
