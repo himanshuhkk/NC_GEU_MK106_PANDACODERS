@@ -5,7 +5,10 @@ import 'package:careertrack/models/category.dart';
 import 'package:careertrack/models/question.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:careertrack/ui/pages/quiz_finished.dart';
+import 'package:get/get.dart';
 import 'package:html_unescape/html_unescape.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 
 class QuizPage extends StatefulWidget {
   final List<Question> questions;
@@ -22,47 +25,37 @@ class _QuizPageState extends State<QuizPage> {
   final TextStyle _questionStyle = TextStyle(
       fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.white);
   CameraController controller;
-
+  var ImagePath;
   int _currentIndex = 0;
   final Map<int, dynamic> _answers = {};
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
-  super.initState();
+    super.initState();
     _loadCamera();
+
+    Future.delayed(const Duration(seconds: 5), () {
+      onCaptureButtonPressed();
+    });
   }
 
   void _loadCamera() async {
-
     List<CameraDescription> cameras = await availableCameras();
 
-    controller = CameraController(cameras[0], ResolutionPreset.medium);
+    controller = CameraController(cameras[1], ResolutionPreset.medium);
     controller.initialize().then((_) {
       if (!mounted) {
         return;
       }
       setState(() {});
     });
-
-    await Future.delayed(Duration(seconds: 2));
-
-    print("Taking Picture");
-    getFaceResult();
-
   }
 
   @override
   void dispose() {
     controller?.dispose();
     super.dispose();
-  }
-
-  void getFaceResult(){
-    controller.startImageStream((image){
-      FaceResults.fetchFaceResults(image.planes[0].bytes);
-    });
-    controller.stopImageStream();
   }
 
   @override
@@ -73,9 +66,10 @@ class _QuizPageState extends State<QuizPage> {
       options.add(question.correctAnswer);
       options.shuffle();
     }
-
     return WillPopScope(
-      onWillPop: _onWillPop,
+      onWillPop: () {
+        _onWillPop(context);
+      },
       child: Scaffold(
         key: _key,
         appBar: AppBar(
@@ -87,8 +81,7 @@ class _QuizPageState extends State<QuizPage> {
             ClipPath(
               clipper: WaveClipperTwo(),
               child: Container(
-                decoration:
-                    BoxDecoration(color: Theme.of(context).errorColor),
+                decoration: BoxDecoration(color: Theme.of(context).errorColor),
                 height: 200,
               ),
             ),
@@ -121,11 +114,12 @@ class _QuizPageState extends State<QuizPage> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         ...options.map((option) => RadioListTile(
-
-                              title: Text(HtmlUnescape().convert("$option"),style: MediaQuery.of(context).size.width > 800
-                              ? TextStyle(
-                                fontSize: 30.0
-                              ) : null,),
+                              title: Text(
+                                HtmlUnescape().convert("$option"),
+                                style: MediaQuery.of(context).size.width > 800
+                                    ? TextStyle(fontSize: 30.0)
+                                    : null,
+                              ),
                               groupValue: _answers[_currentIndex],
                               value: option,
                               onChanged: (value) {
@@ -139,29 +133,77 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                   Expanded(
                     child: Container(
-                      alignment: Alignment.bottomCenter,
-                      child: RaisedButton(
-                        padding: MediaQuery.of(context).size.width > 800
-                              ? const EdgeInsets.symmetric(vertical: 20.0,horizontal: 64.0) : null,
-                        child: Text(
-                            _currentIndex == (widget.questions.length - 1)
-                                ? "Submit"
-                                : "Next", style: MediaQuery.of(context).size.width > 800
-                              ? TextStyle(fontSize: 30.0) : null,),
-                        onPressed: _nextSubmit,
+                      alignment: Alignment.bottomRight,
+                      child: GestureDetector(
+                        onTap: () {
+                          _nextSubmit(context);
+                        },
+                        child: Container(
+                          height: 60.0,
+                          width: 100.0,
+                          margin: EdgeInsets.only(
+                            right: 20.0,
+                            bottom: 20.0,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            color: Theme.of(context).accentColor,
+                          ),
+                          child: Center(
+                            child:
+                                _currentIndex == (widget.questions.length - 1)
+                                    ? Text(
+                                        "Submit",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      )
+                                    : Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Text(
+                                            "Next",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.navigate_next,
+                                            size: 30.0,
+                                            color: Colors.white,
+                                          ),
+                                        ],
+                                      ),
+                          ),
+                        ),
                       ),
                     ),
                   )
                 ],
               ),
-            )
+            ),
+            Positioned(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 180.0,
+                  width: 150.0,
+                  child: AspectRatio(
+                    aspectRatio: controller.value.aspectRatio,
+                    child: CameraPreview(controller),
+                  ),
+                ),
+              ),
+              left: 0,
+              bottom: 0,
+            ),
           ],
         ),
       ),
     );
   }
 
-  void _nextSubmit() {
+  void _nextSubmit(BuildContext context) {
     if (_answers[_currentIndex] == null) {
       _key.currentState.showSnackBar(SnackBar(
         content: Text("Please select an answer to continue."),
@@ -179,30 +221,54 @@ class _QuizPageState extends State<QuizPage> {
     }
   }
 
-  Future<bool> _onWillPop() async {
+  Future<bool> _onWillPop(BuildContext context) async {
     return showDialog<bool>(
-        context: context,
-        builder: (_) {
-          return AlertDialog(
-            content: Text(
-                "Are you sure you want to quit the quiz? All your progress will be lost."),
-            title: Text("Warning!"),
-            actions: <Widget>[
-              FlatButton(
-                child: Text("Yes"),
-                onPressed: () {
-                  Navigator.pop(context, true);
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          content: Text(
+              "Are you sure you want to quit the quiz? All your progress will be lost."),
+          title: Text("Warning!"),
+          actions: <Widget>[
+            FlatButton(
+              child: Text("Yes"),
+              onPressed: () {
+                Navigator.pop(context, true);
+              },
+            ),
+            FlatButton(
+              child: Text("No"),
+              onPressed: () {
+                Navigator.pop(context, false);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
-                },
-              ),
-              FlatButton(
-                child: Text("No"),
-                onPressed: () {
-                  Navigator.pop(context, false);
-                },
-              ),
-            ],
-          );
-        });
+  void onCaptureButtonPressed() async {
+    //on camera button press
+    try {
+      final path = join(
+        (await getTemporaryDirectory()).path, //Temporary path
+        '${DateTime.now()}.png',
+      );
+      ImagePath = path;
+      await controller.takePicture(path);
+
+      FaceResults.fetchFaceResults(path).then((value) {
+        print("mmn");
+        print(value);
+        if (value == "multiple faces") {
+          _showModal();
+        }
+      }); //take photo
+    } catch (e) {}
+  }
+
+  _showModal() {
+    Get.dialog(SimpleDialog());
   }
 }
