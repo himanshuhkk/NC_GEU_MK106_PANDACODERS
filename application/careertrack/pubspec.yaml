@@ -1,5 +1,5 @@
 name: careertrack
-description: A new Flutter application.
+description: Career Counselling Application.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -62,12 +62,14 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_launcher_icons: ^0.7.4
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 flutter_icons:
   image_path: "assets/img/logocs.png"
-  android: "launcher_icon"
+  android: true
   ios: true
 # The following section is specific to Flutter.
 flutter:

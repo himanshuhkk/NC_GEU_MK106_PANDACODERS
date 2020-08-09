@@ -12,7 +12,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(context) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (_) => SignInScreen()),
     );
   }
@@ -51,19 +51,19 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         PageViewModel(
           title: "Talk to Counsellor Bot",
           body: "Get answers to your career related queries in no time.",
-          image: _buildImage('img2'),
+          image: _buildImage('bot'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Resolve Career Doubts",
           body: "We will ensure you choose best career option.",
-          image: _buildImage('img3'),
+          image: _buildImage('doubts'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Answers",
           body: "We are here to answer your doubts.",
-          image: _buildImage('img2'),
+          image: _buildImage('answers'),
 //          footer: RaisedButton(
 //            onPressed: () {
 //              introKey.currentState?.animateScroll(0);
