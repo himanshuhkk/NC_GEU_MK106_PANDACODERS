@@ -38,7 +38,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   function GoogleFunctionHandler(agent){
     const query=agent.parameters.any;
     agent.add("Google Says: ");
-    return axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyABtMQdQ-VVW013K23LAF_nLNq6t0ngZpU&cx=000277142673110541002:jdelrrxrvii&q=${query}`)
+    return axios.get(`https://www.googleapis.com/customsearch/v1?key=*******************&cx=*************&q=${query}`)
     .then((result) => {
       //console.log(result.data);
       for (var i = 0; i < 3; i++) {
@@ -57,7 +57,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   function jobHandler(agent){
     const query=agent.parameters.any;
     //agent.add("Google Says: ");
-    return axios.get(`https://www.googleapis.com/customsearch/v1?key=AIzaSyABtMQdQ-VVW013K23LAF_nLNq6t0ngZpU&cx=000277142673110541002:jdelrrxrvii&q=${query}`)
+    return axios.get(`https://www.googleapis.com/customsearch/v1?key=*****************&cx=******************&q=${query}`)
     .then((result) => {
       //console.log(result.data);
       for (var i = 0; i < 3; i++) {
