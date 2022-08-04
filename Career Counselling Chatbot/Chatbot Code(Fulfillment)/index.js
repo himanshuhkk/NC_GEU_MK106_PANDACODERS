@@ -1,5 +1,6 @@
 // See https://github.com/dialogflow/dialogflow-fulfillment-nodejs
 // for Dialogflow fulfillment library docs, samples, and to report issues
+//in this chat model , the chatbot is dependent on the way of response which is not correct
 'use strict';
 const axios = require('axios');
 const functions = require('firebase-functions');
@@ -87,7 +88,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   
   
   // Run the proper function handler based on the matched Dialogflow intent name
-  let intentMap = new Map();
+  let intentMap = new Map();                           
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
   intentMap.set('Google', GoogleFunctionHandler);
